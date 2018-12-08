@@ -1,0 +1,12 @@
+.music_player {
+    border: 2px solid black;
+    margin: 5%;
+    
+}
+
+.banner {
+    border: 3px dotted black;
+    padding: 5px;
+    margin: 2%;
+    text-align: center;
+}
