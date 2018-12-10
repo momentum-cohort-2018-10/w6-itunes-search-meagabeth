@@ -4,6 +4,7 @@ const searchField = document.getElementById('search_field')
 // const fieldSearch = searchField.innerHTML
 const searchButton = document.getElementById('search_button')
 
+
 searchButton.addEventListener('click', function () {
     $.ajax({
         url: `https://itunes-api-proxy.glitch.me/search`,
@@ -27,19 +28,32 @@ searchButton.addEventListener('click', function () {
             
             // for each of the results
             for (let entity of results.results) {
-                let songP = document.createElement('p')
-                // let songAudio = document.createElement('audio')
+                let musicDiv = document.createElement('div')
+                let songArtist = document.createElement('p')
+                let songTitle = document.createElement('p')
+                let songSample = document.createElement('audio')
+                let songSource = document.createElement('source')
                 let songImage = document.createElement('img')
+                let songDetails = document.createElement('div')
 
-                // songLink.href = entity.artistViewURL
-                console.log(entity.collectionViewURL)
-                // songAudio.controls = "controls"
-                // songLink.innerText = entity.artistName
+                
+                // console.log(entity.collectionViewURL)
+                songSource.src = entity.previewUrl
+                songSource.type = "audio/mpeg"
+                songSample.controls = true
+                songSample.appendChild(songSource)
+                
+                songArtist.innerText = entity.artistName
+                songTitle.innerText = entity.trackName
                 songImage.src = entity.artworkUrl100
 
-                // songP.appendChild(songLink)
-                searchResultsDiv.appendChild(songP)
-                searchResultsDiv.appendChild(songImage)
+                // arrange parts of each search result
+                searchResultsDiv.appendChild(musicDiv)
+                searchResultsDiv.appendChild(songDetails)
+                searchResultsDiv.appendChild(songSample)
+                searchResultsDiv.appendChild(songImage)                
+                songDetails.appendChild(songArtist)
+                songDetails.appendChild(songTitle)
                 
 
                 
@@ -47,3 +61,13 @@ searchButton.addEventListener('click', function () {
         }    
     })
 })
+
+// function play_audio () {
+//     let audioDiv = document.getElementById('audio-player')
+//     audioDiv.innerHTML = ''
+//     let 
+//     songSource.src = entity.previewURL
+//     songSource.type = "audio/mpeg"
+//     songSample.controls = true
+//     songSample.appendChild(songSource)
+// }

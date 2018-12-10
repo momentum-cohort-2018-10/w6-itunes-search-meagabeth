@@ -10,3 +10,15 @@
     margin: 2%;
     text-align: center;
 }
+
+.search_field {
+    width: 40%;
+    text-align: center;
+    margin: 2%;
+}
+
+.search-results {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
