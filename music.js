@@ -21,10 +21,10 @@ searchButton.addEventListener('click', function () {
             // clear previous results, if any
             searchResultsDiv.innerHTML = ''
             // create and define variable countP as the 'p' announcing number of results
-            let countP = document.createElement('p')
-            // returns number of results
-            countP.innerText = `Your search returned ${results.resultCount} results`
-            searchResultsDiv.appendChild(countP)
+            // let countP = document.getElementById('result-nums')
+            // // returns number of results
+            // countP.innerText = `Your search returned ${results.resultCount} results`
+            // searchResultsDiv.appendChild(countP)
             
             // for each of the results
             for (let entity of results.results) {
@@ -48,13 +48,13 @@ searchButton.addEventListener('click', function () {
                 songImage.src = entity.artworkUrl100
 
                 // arrange parts of each search result
-                searchResultsDiv.appendChild(musicDiv)
-                searchResultsDiv.appendChild(songDetails)
-                searchResultsDiv.appendChild(songSample)
-                searchResultsDiv.appendChild(songImage)                
+                songDetails.appendChild(songImage)     
                 songDetails.appendChild(songArtist)
                 songDetails.appendChild(songTitle)
-                
+                searchResultsDiv.appendChild(musicDiv)
+                musicDiv.appendChild(songDetails)
+
+                musicDiv.appendChild(songSample)
 
                 
             }
@@ -62,12 +62,16 @@ searchButton.addEventListener('click', function () {
     })
 })
 
+// songTitle.addEventListener('click', play_audio)
+
 // function play_audio () {
 //     let audioDiv = document.getElementById('audio-player')
 //     audioDiv.innerHTML = ''
-//     let 
-//     songSource.src = entity.previewURL
+//     let songSample = document.createElement('audio')
+//     let songSource = document.createElement('source')
+//     songSource.src = entity.previewUrl
 //     songSource.type = "audio/mpeg"
 //     songSample.controls = true
 //     songSample.appendChild(songSource)
+//     audioDiv.appendChild(songSample)
 // }
